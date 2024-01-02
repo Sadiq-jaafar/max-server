@@ -1,42 +1,10 @@
 // VideoGrid.tsx
 
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import { Text } from "@chakra-ui/react";
-
-interface Snippet {
-  title: string;
-  description: string;
-}
-
-interface Video {
-  id: string;
-  snippet: Snippet;
-}
-
-interface FetchVideoResponse {
-  items: Video[];
-}
+import useVideos from "../hooks/useVideo";
 
 const VideoGrid = () => {
-  const [videos, setVideos] = useState<Video[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchVideoResponse>("/videos", {
-        params: {
-          part: "snippet",
-          chart: "mostPopular",
-          regionCode: "US",
-          maxResults: 20,
-        },
-      })
-      .then((res) => {
-        setVideos(res.data.items);
-      })
-      .catch((err) => setError(err.message));
-  }, []);
+  const { videos, error } = useVideos();
 
   return (
     <>
