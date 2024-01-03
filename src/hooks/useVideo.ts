@@ -5,9 +5,10 @@ import { CanceledError } from "axios";
 interface Snippet {
     title: string;
     description: string;
+    thumbnails: string;
   }
   
-  interface Video {
+  export interface Video {
     id: string;
     snippet: Snippet;
   }
