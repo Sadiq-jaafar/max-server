@@ -8,7 +8,7 @@ import VideoCardContainer from "./VideoCardContainer";
 import VideoCardSkeleton from "./VideoCardSkeleton";
 
 const VideoGrid = () => {
-  const { videos, error, isLoading } = useVideos();
+  const { data, error, isLoading } = useVideos();
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -27,7 +27,7 @@ const VideoGrid = () => {
             </VideoCardContainer>
           ))}
 
-        {videos.map((video) => (
+        {data.map((video) => (
           <VideoCardContainer>
             <VideoCard key={video.id} video={video} />
           </VideoCardContainer>

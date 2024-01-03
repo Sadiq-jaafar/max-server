@@ -1,10 +1,10 @@
 import useCategories from "../hooks/useCategories";
 
 const Categgories = () => {
-  const { categories } = useCategories();
+  const { data } = useCategories();
   return (
     <ul>
-      {categories.map((category) => (
+      {data.map((category) => (
         <li key={category.id}>{category.snippet.title}</li>
       ))}
     </ul>
