@@ -1,13 +1,25 @@
-import useCategories from "../hooks/useCategories";
+import { Button, List, ListItem } from "@chakra-ui/react";
+import useCategories, { Categories } from "../hooks/useCategories";
+interface Props {
+  onSelectCategory: (category: Categories) => void;
+}
 
-const Categgories = () => {
+const Categgories = ({ onSelectCategory }: Props) => {
   const { data } = useCategories();
   return (
-    <ul>
+    <List>
       {data.map((category) => (
-        <li key={category.id}>{category.snippet.title}</li>
+        <ListItem key={category.id} paddingY="5px">
+          <Button
+            fontSize="lg"
+            variant="link"
+            onClick={() => onSelectCategory(category)}
+          >
+            {category.snippet.title}
+          </Button>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };
 

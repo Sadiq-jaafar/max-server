@@ -1,4 +1,6 @@
+import axios from "axios";
 import useData from "./useData";
+import { Categories } from './useCategories';
 
 interface Snippet {
     title: string;
@@ -14,7 +16,8 @@ interface Snippet {
   
   
 
-const useVideos = ()=> useData<Video>('/videos')
+const useVideos = (selectedCategory:Categories | null)=> useData<Video>('/videos',{params: {Categories: selectedCategory?.id}})
 
+  
 
 export default useVideos

@@ -6,9 +6,14 @@ import VideoCard from "./VideoCard";
 
 import VideoCardContainer from "./VideoCardContainer";
 import VideoCardSkeleton from "./VideoCardSkeleton";
+import { Categories } from "../hooks/useCategories";
 
-const VideoGrid = () => {
-  const { data, error, isLoading } = useVideos();
+interface Props {
+  selectedCatigory: Categories | null;
+}
+
+const VideoGrid = ({ selectedCatigory }: Props) => {
+  const { data, error, isLoading } = useVideos(selectedCatigory);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -22,14 +27,14 @@ const VideoGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <VideoCardContainer>
-              <VideoCardSkeleton key={skeleton} />
+            <VideoCardContainer key={skeleton}>
+              <VideoCardSkeleton />
             </VideoCardContainer>
           ))}
 
         {data.map((video) => (
-          <VideoCardContainer>
-            <VideoCard key={video.id} video={video} />
+          <VideoCardContainer key={video.id}>
+            <VideoCard video={video} />
           </VideoCardContainer>
         ))}
       </SimpleGrid>
