@@ -16,7 +16,7 @@ interface Snippet {
   
   
 
-const useVideos = (selectedCategory:Categories | null)=> useData<Video>('/videos',{params: {Categories: selectedCategory?.id}})
+const useVideos = (selectedCategory:Categories | null)=> useData<Video>('/videos',{params: {Categories: selectedCategory?.id}}, [selectedCategory?.id])
 
   
 

@@ -28,7 +28,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <VideoGrid />
+        <VideoGrid selectedCatigory={selectedCategory} />
       </GridItem>
     </Grid>
   );
