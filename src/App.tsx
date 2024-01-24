@@ -3,12 +3,9 @@ import NavBar from "./components/NavBar";
 import VideoGrid from "./components/VideoGrid";
 import Categgories from "./components/Categgories";
 import { useState } from "react";
-import { Categories } from "./hooks/useCategories";
 
 const App = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
-    null
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
     <Grid

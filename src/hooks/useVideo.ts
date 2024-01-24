@@ -2,21 +2,23 @@ import axios from "axios";
 import useData from "./useData";
 import { Categories } from './useCategories';
 
-interface Snippet {
-    title: string;
-    description: string;
-    thumbnails: string;
-  }
+
   
   export interface Video {
-    id: string;
-    snippet: Snippet;
+    id:string ,
+    title:string,
+    description: string,  
+    type:string ,
+    thumbnail:string,
+    duration:string,
+    channel_id:string,    
+    publishedAt:string,
   }
   
   
   
 
-const useVideos = (selectedCategory:Categories | null)=> useData<Video>('/videos',{params: {Categories: selectedCategory?.id}}, [selectedCategory?.id])
+const useVideos = ()=> useData<Video>('/media')
 
   
 

@@ -3,10 +3,10 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: 'https://www.googleapis.com/youtube/v3',
-  params: {
-    key: 'AIzaSyCulc43DqsOQXkaufUXJ59VacYHMJ6q52Y', // Replace with your YouTube API key
-  },
+  baseURL: 'http://localhost:9000/api',
+  // params: {
+  //   key: 'AIzaSyCulc43DqsOQXkaufUXJ59VacYHMJ6q52Y', // Replace with your YouTube API key
+  // },
 });
 
 export default apiClient;

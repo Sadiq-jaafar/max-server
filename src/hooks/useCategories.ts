@@ -1,14 +1,17 @@
 import useData from "./useData";
-interface Snippet {
-    title: string;
-}
+
+
 export interface Categories{
     id: string
-    snippet: Snippet;
+    type: string
 
+}
+ export interface Props{
+    category:Categories
 }
 
 
-const useCategories = ()=> useData<Categories>('/videoCategories')
+const useCategories = ({category}:Props)=> useData<Categories>('/media')
+// {params: {Categories: selectedCategory}})
 
 export default useCategories

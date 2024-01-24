@@ -10,7 +10,7 @@ interface Categories{
 
 }
 export interface FetchResponse<T>{
-    items: T[];
+data: T[];
 }
 
 const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig , deps?:any[])=> {
@@ -25,16 +25,21 @@ const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig , deps?:a
 
         setLoading(true)
         apiClient
-            .get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig,
-             params: {
-             part: "snippet",
-             chart: "mostPopular",
-            regionCode: "US",
-             maxResults: 20,
-            },
+            .get<FetchResponse<T>>(endpoint, { signal: controller.signal,
+                //  ...requestConfig,
+            //  params: {
+            //  part: "snippet",
+            //  chart: "mostPopular",
+            // regionCode: "US",
+            //  maxResults: 20,
+            // },
             })
             .then((res) => {
-             setData(res.data.items);
+    
+                
+            //  setData(res.data.items);
+            setData(res.data.data);
+
              setLoading(false);
             })
             .catch((err) =>{
@@ -44,6 +49,7 @@ const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig , deps?:a
             });
         return () => controller.abort();   
   },deps ? [...deps] :[]);
+// console.log(';;;;;;;//////////////',data);
 
   return {data, error, isLoading}
 }
