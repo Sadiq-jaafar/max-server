@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import VideoGrid from "./components/VideoGrid";
 import Categgories from "./components/Categgories";
 import { useState } from "react";
+import FileUploadPage from "./pages/MediaUpload";
+import MediaStreamingPage from "./pages/StreamingPage";
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
