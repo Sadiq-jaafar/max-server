@@ -13,7 +13,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "id", element: <StreamingPage /> },
       { path: "uplaod", element: <FileUploadPage /> },
-      { path: "stream/:idm", element: <MediaStreamingPage /> }, // Fixed the path for video ID
+      { path: "stream/:id", element: <MediaStreamingPage /> }, // Fixed the path for video ID
     ],
   },
 ]);

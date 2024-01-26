@@ -22,11 +22,10 @@ const HomePage = () => {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <Heading>MEDIA FILES</Heading>
           <VideoGrid selectedCatigory={selectedCategory} />
         </GridItem>
       </Grid>
-
-      <Heading>homepage</Heading>
     </>
   );
 };

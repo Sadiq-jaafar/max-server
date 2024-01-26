@@ -1,7 +1,7 @@
 // VideoGrid.tsx
 
 // import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import useVideos from "../hooks/useVideo";
 import VideoCard from "./VideoCard";
@@ -23,36 +23,36 @@ const VideoGrid = ({ selectedCatigory }: Props) => {
     : data;
 
   return (
-    <Router>
-      <>
-        {error && <Text>{error}</Text>}
-        <Routes>
-          <Route path="media/stream?id=`${videoId}`" element={<VideoPlayer />} />
-          <Route
-            path="/"
-            element={
-              <SimpleGrid
-                columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-                padding="10px"
-                spacing={10}
-              >
-                {isLoading &&
-                  skeletons.map((skeleton) => (
-                    <VideoCardContainer key={skeleton}>
-                      <VideoCardSkeleton />
-                    </VideoCardContainer>
-                  ))}
-                {filteredVideos.map((video) => (
-                  <VideoCardContainer key={video.id}>
-                    <VideoCard video={video} />
-                  </VideoCardContainer>
-                ))}
-              </SimpleGrid>
-            }
-          />
-        </Routes>
-      </>
-    </Router>
+    // <Router>
+    //   <>
+    //     {error && <Text>{error}</Text>}
+    //     <Routes>
+    //       <Route path="media/stream?id=`${videoId}`" element={<VideoPlayer />} />
+    //       <Route
+    //         path="/"
+    //         element={
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      padding="10px"
+      spacing={10}
+    >
+      {isLoading &&
+        skeletons.map((skeleton) => (
+          <VideoCardContainer key={skeleton}>
+            <VideoCardSkeleton />
+          </VideoCardContainer>
+        ))}
+      {filteredVideos.map((video) => (
+        <VideoCardContainer key={video.id}>
+          <VideoCard video={video} />
+        </VideoCardContainer>
+      ))}
+    </SimpleGrid>
+    // }
+    //       />
+    //     </Routes>
+    //   </>
+    // </Router>
   );
 };
 
